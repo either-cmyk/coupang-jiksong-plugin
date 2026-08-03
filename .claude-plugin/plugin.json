@@ -1,6 +1,6 @@
 {
   "name": "coupang-jiksong-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "쿠팡 물류동봉문서(거래명세서) PDF → 사방넷 발주등록(직송) 엑셀 자동 변환 플러그인. 쿠팡 입고(로켓발주/밀크런)=직송. 다박스/제출용+보관용 다페이지 파싱+dedupe, 혼합 레이아웃 지원. 뉴트리정(N계정)은 sku_master+번들+1개입 키워드 매핑, 이더컴퍼니(E계정) 공산품은 재고조회/공산품코드 엑셀로 바코드→코드 매핑. 배송방식=직송/발주타입=쿠팡-파렛트출고/출고희망일=도착예정일 고정.",
   "author": {
     "name": "이더컴퍼니",
@@ -9,5 +9,17 @@
   "homepage": "https://github.com/either-cmyk/coupang-jiksong-plugin",
   "repository": "https://github.com/either-cmyk/coupang-jiksong-plugin",
   "license": "MIT",
-  "keywords": ["직송","쿠팡입고","동봉문서","사방넷","sabangnet","발주등록","coupang","fulfillment","뉴트리정","이더컴퍼니","pdf-to-xlsx"]
+  "keywords": [
+    "직송",
+    "쿠팡입고",
+    "동봉문서",
+    "사방넷",
+    "sabangnet",
+    "발주등록",
+    "coupang",
+    "fulfillment",
+    "뉴트리정",
+    "이더컴퍼니",
+    "pdf-to-xlsx"
+  ]
 }
