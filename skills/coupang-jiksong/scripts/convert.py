@@ -133,8 +133,14 @@ def map_nutrijeong(item):
     nl = re.sub(r"\s+", "", name).lower()  # PDF 줄바꿈 공백 제거 후 매칭
     # 번들(2개입 이상) 판정이 1개입 키워드보다 먼저! (사용자 규칙 2026-06-05:
     # 신상품 번들은 마스터 미등록이어도 PDF 상품번호 그대로 사용)
-    mb = re.search(r"/(\d+)개", nl)
-    if mb and int(mb.group(1)) >= 2 and prod_no.isdigit() and len(prod_no) == 8:
+    # 개입 표기 두 형태 모두 인식: "/2개 300정" 및 "/ 300정 2개"(슬래시 뒤 어디든)
+    mb = None
+    tail = nl.split("/")[-1] if "/" in nl else ""
+    m_all = re.findall(r"(\d+)개(?!입)", tail)
+    if m_all:
+        mb = m_all[-1] if re.match(r"^\d+개", tail) is False else m_all[0]
+        mb = m_all[0] if re.match(r"^\d+개", tail) else m_all[-1]
+    if mb and int(mb) >= 2 and prod_no.isdigit() and len(prod_no) == 8:
         return prod_no, "", "[신상품] 마스터 미등록 번들 → PDF 상품번호 그대로 사용 (명칭은 PDF 원문)"
     # 1개입: 품목 키워드 → N코드
     for r in ONEPACK:
